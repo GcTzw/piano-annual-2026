@@ -1,0 +1,20 @@
+.tools/
+node_modules/
+output/
+pdf-preview*.png
+__pycache__/
+.playwright-cli/
+# Local source references and installed agent skills
+.agents/
+ref/
+SKILLS-INSTALL.md
+製作規劃.md
+共響共享音樂會流程261116_PDF.pdf
+# Historical one-time migration helpers
+scripts/prepare.py
+scripts/update-effects.py
+scripts/refine-effects.py
+scripts/editorial-refine.py
+scripts/adjust-stack-breakpoint.py
+scripts/add-facebook.py
+scripts/add-download.py
