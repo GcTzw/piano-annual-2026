@@ -118,3 +118,23 @@ if ('IntersectionObserver' in window) {
   }, {rootMargin: '-10% 0px -65% 0px', threshold: 0});
   document.querySelectorAll('.movement').forEach(section => observer.observe(section));
 }
+
+// Show the shortcut only while the program occupies the reading area.
+const backFirst = document.querySelector('.back-first');
+const programArea = document.querySelector('#program');
+let shortcutFrame;
+function updateProgramShortcut() {
+  const bounds = programArea.getBoundingClientRect();
+  backFirst.hidden = !(bounds.top <= window.innerHeight * .5 && bounds.bottom > window.innerHeight * .5);
+}
+function scheduleShortcutUpdate() {
+  if (shortcutFrame) return;
+  shortcutFrame = requestAnimationFrame(() => {
+    shortcutFrame = null;
+    updateProgramShortcut();
+  });
+}
+window.addEventListener('scroll', scheduleShortcutUpdate, {passive:true});
+window.addEventListener('resize', scheduleShortcutUpdate);
+new ResizeObserver(scheduleShortcutUpdate).observe(programArea);
+updateProgramShortcut();

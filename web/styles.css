@@ -18,3 +18,5 @@
 .back-first{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:60px;min-height:64px;background:var(--surface);color:var(--gold);border:1px solid var(--gold);border-radius:8px;box-shadow:0 4px 16px #0004;font-size:12px;line-height:1.5}
 .back-first svg{width:22px;height:22px}.back-first:hover{background:var(--navy);color:var(--ivory)}
 body{padding-bottom:88px}
+
+.back-first[hidden]{display:none}
