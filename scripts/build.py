@@ -14,9 +14,9 @@ def section(part):
             continue
         n = song['order']
         source = song.get('source', '') or ('特別演出・鋼琴與鼓' if n == 26 else '鋼琴演出')
-        rows.append(f'''<details class="piece" id="piece-{n:02}">
-          <summary><span class="number">{n:02}</span><span class="piece-title">{esc(song['title'])}</span><span class="performer">{esc(song['performer'])}</span><span class="plus" aria-hidden="true">+</span></summary>
-          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>{esc(source)}</p></div><a href="#piece-{n:02}" class="permalink" aria-label="複製第 {n} 項曲目連結">複製曲目連結 ↗</a></div>
+        rows.append(f'''<details class="piece" name="concert-program" id="piece-{n:02}">
+          <summary><span class="number">{n:02}</span><span class="piece-title">{esc(song['title'])}</span><span class="performer">{esc(song['performer']).replace(chr(10), "<br>")}</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>{esc(source)}</p></div></div>
         </details>''')
     return '\n'.join(rows)
 

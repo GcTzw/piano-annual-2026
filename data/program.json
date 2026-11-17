@@ -3,7 +3,8 @@
     "title": "共響共享",
     "date": "2026-12-20",
     "time": "14:30",
-    "venue": "禾禾文化空間"
+    "venue": "禾禾文化空間",
+    "address": "臺北市中山區南京東路三段9號4樓"
   },
   "program": [
     {
@@ -261,7 +262,7 @@
       "order": 26,
       "part": 2,
       "title": "特別演出",
-      "performer": "顏萍如・鼓手 黃育淞",
+      "performer": "鋼琴 顏萍如\n鼓手 黃育淞",
       "source": "",
       "sourceStatus": "candidate",
       "sourcePage": 2

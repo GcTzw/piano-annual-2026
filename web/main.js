@@ -86,22 +86,22 @@ function announce(message) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => toast.classList.remove('visible'), 2400);
 }
-document.querySelectorAll('.permalink').forEach(link => {
-  link.addEventListener('click', async event => {
-    event.preventDefault();
-    const url = new URL(link.getAttribute('href'), location.href);
-    history.replaceState(null, '', url.hash);
-    try {
-      await navigator.clipboard.writeText(url.href);
-      announce('已複製曲目連結');
-    } catch {
-      announce('可複製網址列，分享這首曲目');
-    }
-  });
+// Fallback for browsers without native details grouping support.
+const pieces = [...document.querySelectorAll('.piece')];
+function selectPiece(selected) {
+  pieces.forEach(piece => { if (piece !== selected) piece.open = false; });
+}
+pieces.forEach(piece => piece.addEventListener('toggle', () => {
+  if (piece.open) selectPiece(piece);
+}));
+document.querySelector('.back-first').addEventListener('click', () => {
+  const first = document.querySelector('#piece-01');
+  selectPiece(first);
+  first.querySelector('summary').focus({preventScroll:true});
 });
 function openHash() {
   const target = document.getElementById(location.hash.slice(1));
-  if (target?.matches('details')) target.open = true;
+  if (target?.matches('details')) { selectPiece(target); target.open = true; }
 }
 openHash();
 window.addEventListener('hashchange', openHash);
