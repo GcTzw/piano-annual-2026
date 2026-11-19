@@ -61,7 +61,6 @@ for filename, content, page_title, description, target, is_program in (
         TITLE=page_title,
         DESCRIPTION=description,
         SKIP_TARGET=target,
-        INTRO=read('intro.html') if is_program else '',
         PROGRAM_CURRENT=current if is_program else '',
         TRAFFIC_CURRENT='' if is_program else current,
         CONTENT=content,

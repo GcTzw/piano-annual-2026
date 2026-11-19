@@ -66,19 +66,6 @@ function addKey(midi, index, black = false) {
 whites.forEach((midi, index) => addKey(midi, index));
 whites.forEach((midi, index) => { if (whites[index + 1] === midi + 2) addKey(midi + 1, index, true); });
 
-// Use the rotated keyboard's visible bounds rather than a fixed breakpoint offset.
-const pianoHint = document.querySelector('.piano-hint');
-const pianoArt = document.querySelector('.art');
-function positionPianoHint() {
-  const keys = keyboard.getBoundingClientRect();
-  const art = pianoArt.getBoundingClientRect();
-  pianoHint.style.top = `${keys.bottom - art.top + 22}px`;
-  pianoHint.style.left = `${keys.left + keys.width / 2 - art.left}px`;
-}
-new ResizeObserver(positionPianoHint).observe(pianoArt);
-window.addEventListener('resize', positionPianoHint);
-document.fonts.ready.then(positionPianoHint);
-positionPianoHint();
 let toastTimer;
 function announce(message) {
   toast.textContent = message;

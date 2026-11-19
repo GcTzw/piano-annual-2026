@@ -165,3 +165,64 @@ body:has(.back-first){padding-bottom:88px}
     margin-inline: auto;
   }
 }
+
+/* Concert invitation. Photograph by Geert Pieters, Unsplash (8QrPJ3Kfie4). */
+:root {
+  --navy: #181512;
+  --surface: #28231f;
+  --ivory: #f6ebdd;
+  --gold: #dfbd8e;
+  --muted: #cebdab;
+  --line: rgba(223,189,142,.32);
+}
+.invitation {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 0 max(var(--page), calc((100% - 1060px)/2)) 16px;
+}
+.invitation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg,#181512 2%,rgba(24,21,18,.94) 26%,transparent 78%),
+    linear-gradient(0deg,#181512 3%,rgba(24,21,18,.97) 24%,transparent 59%),
+    url("assets/recital-piano.jpg") center 58%/cover;
+}
+.invitation-copy {
+  padding-block: clamp(96px,12vw,180px) clamp(56px,7vw,100px);
+}
+.invitation::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  backdrop-filter: blur(9px);
+  mask-image: linear-gradient(90deg, #000, transparent 22%, transparent 78%, #000);
+}
+.invitation-edition { color: var(--gold); letter-spacing: .16em; font-size: 15px }
+.invitation h1 { font-size: clamp(58px,7vw,98px); letter-spacing: .1em; line-height: 1.25; margin-block: 16px }
+.invitation-note { font: 18px/1.8 var(--serif); color: var(--ivory) }
+.invitation .event-strip { margin: 0 }
+.play-piano summary { display: list-item; list-style: disclosure-closed inside; width: fit-content; padding: 12px 0; color: var(--muted); font-size: 14px }
+.play-piano[open] summary { list-style-type: disclosure-open }
+.play-piano .keyboard { position: relative; inset: auto; transform: none; height: 96px; max-width: 520px; margin-bottom: 12px }
+@media (prefers-reduced-motion: no-preference) {
+  .invitation-copy { animation: invitation-arrive .65s ease-out both }
+  @keyframes invitation-arrive { from { opacity: .82; transform: translateY(5px) } }
+}
+@media (max-width: 640px) {
+  .invitation::before { background: linear-gradient(0deg,#181512,transparent 90%) top/100% 250px no-repeat,url("assets/recital-piano.jpg") center top/auto 250px no-repeat }
+  .invitation-copy { padding-block: 178px 26px }
+  .invitation h1 { font-size: clamp(46px,12vw,66px); margin-block: 12px }
+  .invitation-note { font-size: 17px }
+  .invitation .event-strip > div { padding-block: 14px }
+}
+.invitation .event-strip,
+.invitation .play-piano { background: #181512 }
+@media (min-width: 681px) and (max-width: 800px) {
+  .invitation .event-strip { grid-template-columns: .8fr 1fr 1.4fr }
+  .invitation .event-strip > div:last-child { grid-column: auto; padding-left: 20px; border-top: 0; border-left: 1px solid var(--line) }
+}
