@@ -1,0 +1,29 @@
+    <section class="traffic" id="traffic" aria-labelledby="traffic-title">
+      <div class="traffic-details">
+        <h1 id="traffic-title">交通資訊</h1>
+        <p class="traffic-venue">{{VENUE}}</p>
+        <address>{{ADDRESS}}</address>
+        <a class="explore" href="{{MAP_DIRECTIONS}}" target="_blank" rel="noopener">在 Google 地圖規劃路線 <span aria-hidden="true">↗</span></a>
+      </div>
+      <iframe class="venue-map" title="{{VENUE}}的 Google 地圖" src="{{MAP_EMBED}}" loading="lazy" allowfullscreen></iframe>
+      <div class="transit-info">
+        <section aria-labelledby="metro-title">
+          <h2 id="metro-title">捷運</h2>
+          <ul role="list">
+            <li><strong>松江南京站 6 號出口</strong><span>步行約 5–7 分鐘</span></li>
+            <li><strong>南京復興站 1 號出口</strong><span>步行約 7–10 分鐘</span></li>
+          </ul>
+        </section>
+        <section aria-labelledby="bus-title">
+          <h2 id="bus-title">公車</h2>
+          <p><strong>南京建國路口站</strong></p>
+          <p>下車後步行約 1–2 分鐘。</p>
+          <p class="bus-routes">46、279、282、288、292、306、307、605快、652、668、675、711、紅25、承德幹線、南京幹線</p>
+          <p class="bus-arrivals">
+            查詢即時到站
+            <a href="https://ebus.gov.taipei/VirtualStop/1048700320">往東</a>
+            <a href="https://ebus.gov.taipei/Stop/RoutesOfStop?Stopid=1048700360">往西</a>
+          </p>
+        </section>
+      </div>
+    </section>

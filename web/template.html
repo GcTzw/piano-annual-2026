@@ -3,32 +3,30 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b1828">
-  <title>共響共享｜2026 音樂會</title>
-  <meta name="description" content="2026 共響共享音樂會・12 月 20 日 14:30・禾禾文化空間。探索演出曲目與演出者。">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="2026 共響共享音樂會・12 月 20 日 {{SHOW_TIME}}・{{VENUE}}。{{DESCRIPTION}}">
   <link rel="icon" href="assets/piano.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css"><script src="main.js" defer></script>
 </head>
 <body id="top">
-  <a class="skip" href="#program">跳至演出曲目</a>
-  <header class="masthead"><a class="wordmark" href="#top">共響共享<span>2026 PIANO RECITAL</span></a><a class="header-link" href="#program">節目單 <span>↗</span></a></header>
+  <a class="skip" href="{{SKIP_TARGET}}">跳至主要內容</a>
   <main>
-    <section class="intro" aria-label="共響共享"><h1 class="intro-title">共響<span>共享</span></h1><a class="scroll-cue" href="#concert" aria-label="向下探索音樂會"><span aria-hidden="true">↓</span></a></section>
+{{INTRO}}
     <div id="concert"></div>
     <section class="hero" aria-labelledby="title">
-      <div class="hero-copy"><p class="recital-edition">2026 音樂會</p><p class="edition">音樂，讓我們在此相遇。</p><h2 class="recital-title" id="title">共響<span>共享</span></h2><div class="hero-bottom"><p class="subtitle">音 樂 會</p><p class="tagline">以琴聲相聚，以共鳴分享。</p></div><div class="hero-actions"><a class="explore" href="#program">探索演出曲目 <span>↓</span></a><a class="download-program" href="assets/concert-program.pdf" download="共響共享音樂會節目單.pdf">下載節目單 <span aria-hidden="true">↓</span><small>PDF</small></a></div></div>
+      <div class="hero-copy"><p class="recital-edition">2026 音樂會</p><p class="edition">音樂，讓我們在此相遇。</p><h2 class="recital-title" id="title">共響<span>共享</span></h2><div class="hero-bottom"><p class="subtitle">音 樂 會</p><p class="tagline">以琴聲相聚，以共鳴分享。</p></div></div>
       <div class="art"><div class="orb"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="keyboard" role="group" aria-label="可演奏琴鍵，中央 C4"></div><p class="piano-hint">輕觸琴鍵，聽見共鳴</p></div>
-      <div class="event-strip"><div><span class="meta-label">日期</span><p>12.20 <small>2026・星期日</small></p></div><div><span class="meta-label">時間</span><p>14:30</p></div><div><span class="meta-label">地點</span><p class="venue">禾禾文化空間<a class="venue-facebook" href="https://www.facebook.com/hehe.ensemble/" target="_blank" rel="noopener noreferrer" aria-label="禾禾文化空間 Facebook（另開新分頁）"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"/></svg></a></p><address class="venue-address">臺北市中山區南京東路三段9號4樓</address></div></div>
+      <div class="event-strip"><div><span class="meta-label">日期</span><p>12.20 <small>2026・星期日</small></p></div><div><span class="meta-label">時間</span><p class="event-time"><time datetime="{{DOORS}}">{{DOORS}}</time> <small>入場</small></p><p class="event-time"><time datetime="{{SHOW_TIME}}">{{SHOW_TIME}}</time> <small>開演</small></p></div><div><span class="meta-label">地點</span><p class="venue">{{VENUE}}<a class="venue-facebook" href="https://www.facebook.com/hehe.ensemble/" target="_blank" rel="noopener noreferrer" aria-label="禾禾文化空間 Facebook（另開新分頁）"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"/></svg></a></p><address class="venue-address">{{ADDRESS}}</address></div></div>
     </section>
-    <section class="program" id="program" aria-labelledby="program-title">
-      <div class="section-heading"><div><h2 id="program-title">節目單</h2></div></div>
-      <nav class="program-nav" aria-label="節目場次"><a href="#first" data-part="first" aria-current="true">上半場 <span>01 — 14</span></a><a href="#second" data-part="second">下半場 <span>15 — 26</span></a><span class="nav-note">26 個演出時刻</span></nav>
-      <section class="movement" id="first" aria-labelledby="first-title"><div class="movement-heading"><h3 id="first-title"><span class="part-label">上篇</span> 上半場</h3><p>FIRST MOVEMENT</p></div><div class="column-labels"><span>曲目 / REPERTOIRE</span><span>演出者 / PERFORMER</span></div>{{FIRST}}</section>
-      <div class="intermission"><div><p>中場休息</p><span>INTERMISSION</span></div><span class="rest-line"></span><p class="rest-copy">稍作停留，讓餘韻延續。</p></div>
-      <section class="movement" id="second" aria-labelledby="second-title"><div class="movement-heading"><h3 id="second-title"><span class="part-label">下篇</span> 下半場</h3><p>SECOND MOVEMENT</p></div><div class="column-labels"><span>曲目 / REPERTOIRE</span><span>演出者 / PERFORMER</span></div>{{SECOND}}</section>
-    </section>
-    <section class="closing"><h2>每一份聆聽，<br>都是音樂的一部分。</h2><p>感謝你，與我們共響共享。</p><a href="#top">回到最上方 ↑</a></section>
+    <div class="page-content">
+      <nav class="site-nav" id="pages" aria-label="網站導覽">
+        <a href="./#pages"{{PROGRAM_CURRENT}}>節目單</a>
+        <a href="traffic.html#pages"{{TRAFFIC_CURRENT}}>交通資訊</a>
+      </nav>
+{{CONTENT}}
+    </div>
   </main>
   <footer><span>共響共享 · 2026</span><span>12.20 / 禾禾文化空間</span></footer><div class="toast" role="status" aria-live="polite"></div>
-<a class="back-first" hidden href="#piece-01" aria-label="回到第一首歌"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12 6-6 6 6M12 6v14M5 3h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>第一首</span></a>
+{{SHORTCUT}}
 </body>
 </html>

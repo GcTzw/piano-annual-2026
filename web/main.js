@@ -94,7 +94,8 @@ function selectPiece(selected) {
 pieces.forEach(piece => piece.addEventListener('toggle', () => {
   if (piece.open) selectPiece(piece);
 }));
-document.querySelector('.back-first').addEventListener('click', () => {
+const backFirst = document.querySelector('.back-first');
+backFirst?.addEventListener('click', () => {
   const first = document.querySelector('#piece-01');
   selectPiece(first);
   first.querySelector('summary').focus({preventScroll:true});
@@ -120,7 +121,6 @@ if ('IntersectionObserver' in window) {
 }
 
 // Show the shortcut only while the program occupies the reading area.
-const backFirst = document.querySelector('.back-first');
 const programArea = document.querySelector('#program');
 let shortcutFrame;
 function updateProgramShortcut() {
@@ -134,7 +134,9 @@ function scheduleShortcutUpdate() {
     updateProgramShortcut();
   });
 }
-window.addEventListener('scroll', scheduleShortcutUpdate, {passive:true});
-window.addEventListener('resize', scheduleShortcutUpdate);
-new ResizeObserver(scheduleShortcutUpdate).observe(programArea);
-updateProgramShortcut();
+if (backFirst && programArea) {
+  window.addEventListener('scroll', scheduleShortcutUpdate, {passive:true});
+  window.addEventListener('resize', scheduleShortcutUpdate);
+  new ResizeObserver(scheduleShortcutUpdate).observe(programArea);
+  updateProgramShortcut();
+}

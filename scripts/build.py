@@ -2,6 +2,7 @@
 import json
 import html
 from pathlib import Path
+from urllib.parse import urlencode
 
 ROOT = Path(__file__).resolve().parents[1]
 data = json.loads((ROOT / 'data/program.json').read_text(encoding='utf-8'))
@@ -20,6 +21,55 @@ def section(part):
         </details>''')
     return '\n'.join(rows)
 
-template = (ROOT / 'web/template.html').read_text(encoding='utf-8')
-(ROOT / 'web/index.html').write_text(template.replace('{{FIRST}}', section(1)).replace('{{SECOND}}', section(2)), encoding='utf-8')
-print('Generated web/index.html: 26 program entries')
+web = ROOT / 'web'
+event = data['event']
+
+
+def read(name):
+    return (web / name).read_text(encoding='utf-8').strip()
+
+
+def render(template, **fields):
+    for name, value in fields.items():
+        template = template.replace('{{' + name + '}}', value)
+    return template
+
+
+layout = read('template.html')
+venue = event['venue']
+address = event['address']
+destination = f'{venue} {address}'
+current = ' aria-current="page"'
+
+program = render(read('program.html'), FIRST=section(1), SECOND=section(2))
+traffic = render(
+    read('traffic-template.html'),
+    MAP_EMBED=esc('https://maps.google.com/maps?' + urlencode(
+        {'q': destination, 'z': 17, 'hl': 'zh-TW', 'output': 'embed'}
+    )),
+    MAP_DIRECTIONS=esc('https://www.google.com/maps/dir/?' + urlencode(
+        {'api': 1, 'destination': destination}
+    )),
+)
+
+for filename, content, page_title, description, target, is_program in (
+    ('index.html', program, '共響共享｜2026 音樂會', '探索演出曲目與演出者。', '#program', True),
+    ('traffic.html', traffic, '交通資訊｜2026 共響共享音樂會', '查看場地地圖與交通路線。', '#traffic', False),
+):
+    page = render(
+        layout,
+        TITLE=page_title,
+        DESCRIPTION=description,
+        SKIP_TARGET=target,
+        INTRO=read('intro.html') if is_program else '',
+        PROGRAM_CURRENT=current if is_program else '',
+        TRAFFIC_CURRENT='' if is_program else current,
+        CONTENT=content,
+        SHORTCUT=read('program-shortcut.html') if is_program else '',
+        VENUE=esc(venue),
+        ADDRESS=esc(address),
+        DOORS=esc(event['doors']),
+        SHOW_TIME=esc(event['time']),
+    )
+    (web / filename).write_text(page + '\n', encoding='utf-8')
+    print(f'Generated web/{filename}')
