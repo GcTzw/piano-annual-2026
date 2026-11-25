@@ -52,19 +52,28 @@ traffic = render(
     )),
 )
 
-for filename, content, page_title, description, target, is_program in (
-    ('index.html', program, '共響共享｜2026 音樂會', '探索演出曲目與演出者。', '#program', True),
-    ('traffic.html', traffic, '交通資訊｜2026 共響共享音樂會', '查看場地地圖與交通路線。', '#traffic', False),
-):
+pages = {
+    'program': ('index.html', program, '共響共享｜2026 音樂會', '探索演出曲目與演出者。'),
+    'traffic': ('traffic.html', traffic, '交通資訊｜2026 共響共享音樂會', '查看場地地圖與交通路線。'),
+}
+
+for active, (filename, _, page_title, description) in pages.items():
+    panels = []
+    for name, (_, content, title, summary) in pages.items():
+        hidden = '' if name == active else ' hidden'
+        panels.append(
+            f'      <div data-page-panel="{name}" data-title="{esc(title)}" '
+            f'data-description="{esc(summary)}"{hidden}>\n{content}\n      </div>'
+        )
     page = render(
         layout,
         TITLE=page_title,
         DESCRIPTION=description,
-        SKIP_TARGET=target,
-        PROGRAM_CURRENT=current if is_program else '',
-        TRAFFIC_CURRENT='' if is_program else current,
-        CONTENT=content,
-        SHORTCUT=read('program-shortcut.html') if is_program else '',
+        SKIP_TARGET=f'#{active}',
+        PROGRAM_CURRENT=current if active == 'program' else '',
+        TRAFFIC_CURRENT=current if active == 'traffic' else '',
+        CONTENT='\n'.join(panels),
+        SHORTCUT=read('program-shortcut.html'),
         VENUE=esc(venue),
         ADDRESS=esc(address),
         DOORS=esc(event['doors']),

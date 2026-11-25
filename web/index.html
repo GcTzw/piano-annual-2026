@@ -6,10 +6,29 @@
   <title>共響共享｜2026 音樂會</title>
   <meta name="description" content="2026 共響共享音樂會・12 月 20 日 14:30・禾禾文化空間。探索演出曲目與演出者。">
   <link rel="icon" href="assets/piano.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css"><script src="main.js" defer></script>
+  <link rel="stylesheet" href="styles.css"><script src="main.js" defer></script><script src="background-music.js" defer></script>
 </head>
 <body id="top">
   <a class="skip" href="#program">跳至主要內容</a>
+  <div class="background-music" role="group" aria-label="背景音樂" hidden>
+    <audio src="assets/program-notes.mp3" loop muted preload="metadata"></audio>
+    <button type="button" class="music-toggle" aria-label="開啟背景音樂" title="開啟背景音樂">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4 10v4m4-7v10m4-13v16m4-12v8m4-6v4"/>
+        <path class="equalizer-slash-gap" d="M3 3l18 18"/>
+        <path class="equalizer-slash" d="M3 3l18 18"/>
+      </svg>
+    </button>
+    <label class="music-volume">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M3 9h4l5-4v14l-5-4H3z"/>
+        <path class="speaker-waves" d="M15 9a4 4 0 0 1 0 6m3-9a8 8 0 0 1 0 12"/>
+        <path class="speaker-muted" d="m16 10 4 4m0-4-4 4"/>
+      </svg>
+      <input type="range" min="0" max="100" value="30" aria-label="背景音樂音量">
+      <span aria-hidden="true">30%</span>
+    </label>
+  </div>
   <main>
     <section class="invitation" id="concert" aria-labelledby="title">
       <div class="invitation-copy">
@@ -25,9 +44,10 @@
     </section>
     <div class="page-content">
       <nav class="site-nav" id="pages" aria-label="網站導覽">
-        <a href="./#pages" aria-current="page">節目單</a>
-        <a href="traffic.html#pages">交通資訊</a>
+        <a href="./#pages" data-page="program" aria-current="page">節目單</a>
+        <a href="traffic.html#pages" data-page="traffic">交通資訊</a>
       </nav>
+      <div data-page-panel="program" data-title="共響共享｜2026 音樂會" data-description="探索演出曲目與演出者。">
 <section class="program" id="program" aria-labelledby="program-title">
       <div class="section-heading">
         <h2 id="program-title">節目單</h2>
@@ -140,7 +160,66 @@
           <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>特別演出・鋼琴與鼓</p></div></div>
         </details></section>
     </section>
+    <section class="recital-feedback" id="feedback" aria-labelledby="feedback-title">
+      <h2 id="feedback-title">演後回饋</h2>
+      <div class="feedback-form">
+        <iframe
+          data-tally-src="https://tally.so/embed/8NZ0Yl?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
+          loading="lazy" width="100%" height="508"
+          title="共響共享｜2026 音樂會演後回饋 - 賓客"></iframe>
+      </div>
+      <a class="explore" href="https://tally.so/r/8NZ0Yl" target="_blank" rel="noopener">在新分頁填寫問卷 ↗</a>
+    </section>
     <section class="closing"><h2>每一份聆聽，<br>都是音樂的一部分。</h2><p>感謝你，與我們共響共享。</p><a href="#top">回到最上方 ↑</a></section>
+    <script>
+      (() => {
+        const widget = document.createElement('script');
+        widget.src = 'https://tally.so/widgets/embed.js';
+        const loadForm = () => {
+          if (window.Tally) {
+            window.Tally.loadEmbeds();
+            return;
+          }
+          const frame = document.querySelector('#feedback iframe');
+          frame.src = frame.dataset.tallySrc;
+        };
+        widget.onload = loadForm;
+        widget.onerror = loadForm;
+        document.head.append(widget);
+      })();
+    </script>
+      </div>
+      <div data-page-panel="traffic" data-title="交通資訊｜2026 共響共享音樂會" data-description="查看場地地圖與交通路線。" hidden>
+<section class="traffic" id="traffic" aria-labelledby="traffic-title">
+      <div class="traffic-details">
+        <h1 id="traffic-title">交通資訊</h1>
+        <p class="traffic-venue">禾禾文化空間</p>
+        <address>臺北市中山區南京東路三段9號4樓</address>
+        <a class="explore" href="https://www.google.com/maps/dir/?api=1&amp;destination=%E7%A6%BE%E7%A6%BE%E6%96%87%E5%8C%96%E7%A9%BA%E9%96%93+%E8%87%BA%E5%8C%97%E5%B8%82%E4%B8%AD%E5%B1%B1%E5%8D%80%E5%8D%97%E4%BA%AC%E6%9D%B1%E8%B7%AF%E4%B8%89%E6%AE%B59%E8%99%9F4%E6%A8%93" target="_blank" rel="noopener">在 Google 地圖規劃路線 <span aria-hidden="true">↗</span></a>
+      </div>
+      <iframe class="venue-map" title="禾禾文化空間的 Google 地圖" src="https://maps.google.com/maps?q=%E7%A6%BE%E7%A6%BE%E6%96%87%E5%8C%96%E7%A9%BA%E9%96%93+%E8%87%BA%E5%8C%97%E5%B8%82%E4%B8%AD%E5%B1%B1%E5%8D%80%E5%8D%97%E4%BA%AC%E6%9D%B1%E8%B7%AF%E4%B8%89%E6%AE%B59%E8%99%9F4%E6%A8%93&amp;z=17&amp;hl=zh-TW&amp;output=embed" loading="lazy" allowfullscreen></iframe>
+      <div class="transit-info">
+        <section aria-labelledby="metro-title">
+          <h2 id="metro-title">捷運</h2>
+          <ul role="list">
+            <li><strong>松江南京站 6 號出口</strong><span>步行約 5–7 分鐘</span></li>
+            <li><strong>南京復興站 1 號出口</strong><span>步行約 7–10 分鐘</span></li>
+          </ul>
+        </section>
+        <section aria-labelledby="bus-title">
+          <h2 id="bus-title">公車</h2>
+          <p><strong>南京建國路口站</strong></p>
+          <p>下車後步行約 1–2 分鐘。</p>
+          <p class="bus-routes">46、279、282、288、292、306、307、605快、652、668、675、711、紅25、承德幹線、南京幹線</p>
+          <p class="bus-arrivals">
+            查詢即時到站
+            <a href="https://ebus.gov.taipei/VirtualStop/1048700320">往東</a>
+            <a href="https://ebus.gov.taipei/Stop/RoutesOfStop?Stopid=1048700360">往西</a>
+          </p>
+        </section>
+      </div>
+    </section>
+      </div>
     </div>
   </main>
   <footer><span>共響共享 · 2026</span><span>12.20 / 禾禾文化空間</span></footer><div class="toast" role="status" aria-live="polite"></div>

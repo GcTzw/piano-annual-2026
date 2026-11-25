@@ -6,10 +6,29 @@
   <title>{{TITLE}}</title>
   <meta name="description" content="2026 共響共享音樂會・12 月 20 日 {{SHOW_TIME}}・{{VENUE}}。{{DESCRIPTION}}">
   <link rel="icon" href="assets/piano.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css"><script src="main.js" defer></script>
+  <link rel="stylesheet" href="styles.css"><script src="main.js" defer></script><script src="background-music.js" defer></script>
 </head>
 <body id="top">
   <a class="skip" href="{{SKIP_TARGET}}">跳至主要內容</a>
+  <div class="background-music" role="group" aria-label="背景音樂" hidden>
+    <audio src="assets/program-notes.mp3" loop muted preload="metadata"></audio>
+    <button type="button" class="music-toggle" aria-label="開啟背景音樂" title="開啟背景音樂">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4 10v4m4-7v10m4-13v16m4-12v8m4-6v4"/>
+        <path class="equalizer-slash-gap" d="M3 3l18 18"/>
+        <path class="equalizer-slash" d="M3 3l18 18"/>
+      </svg>
+    </button>
+    <label class="music-volume">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M3 9h4l5-4v14l-5-4H3z"/>
+        <path class="speaker-waves" d="M15 9a4 4 0 0 1 0 6m3-9a8 8 0 0 1 0 12"/>
+        <path class="speaker-muted" d="m16 10 4 4m0-4-4 4"/>
+      </svg>
+      <input type="range" min="0" max="100" value="30" aria-label="背景音樂音量">
+      <span aria-hidden="true">30%</span>
+    </label>
+  </div>
   <main>
     <section class="invitation" id="concert" aria-labelledby="title">
       <div class="invitation-copy">
@@ -25,8 +44,8 @@
     </section>
     <div class="page-content">
       <nav class="site-nav" id="pages" aria-label="網站導覽">
-        <a href="./#pages"{{PROGRAM_CURRENT}}>節目單</a>
-        <a href="traffic.html#pages"{{TRAFFIC_CURRENT}}>交通資訊</a>
+        <a href="./#pages" data-page="program"{{PROGRAM_CURRENT}}>節目單</a>
+        <a href="traffic.html#pages" data-page="traffic"{{TRAFFIC_CURRENT}}>交通資訊</a>
       </nav>
 {{CONTENT}}
     </div>

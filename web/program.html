@@ -8,4 +8,31 @@
       <div class="intermission"><div><p>中場休息</p><span>INTERMISSION</span></div><span class="rest-line"></span><p class="rest-copy">稍作停留，讓餘韻延續。</p></div>
       <section class="movement" id="second" aria-labelledby="second-title"><div class="movement-heading"><h3 id="second-title"><span class="part-label">下篇</span> 下半場</h3><p>SECOND MOVEMENT</p></div><div class="column-labels"><span>曲目 / REPERTOIRE</span><span>演出者 / PERFORMER</span></div>{{SECOND}}</section>
     </section>
+    <section class="recital-feedback" id="feedback" aria-labelledby="feedback-title">
+      <h2 id="feedback-title">演後回饋</h2>
+      <div class="feedback-form">
+        <iframe
+          data-tally-src="https://tally.so/embed/8NZ0Yl?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
+          loading="lazy" width="100%" height="508"
+          title="共響共享｜2026 音樂會演後回饋 - 賓客"></iframe>
+      </div>
+      <a class="explore" href="https://tally.so/r/8NZ0Yl" target="_blank" rel="noopener">在新分頁填寫問卷 ↗</a>
+    </section>
     <section class="closing"><h2>每一份聆聽，<br>都是音樂的一部分。</h2><p>感謝你，與我們共響共享。</p><a href="#top">回到最上方 ↑</a></section>
+    <script>
+      (() => {
+        const widget = document.createElement('script');
+        widget.src = 'https://tally.so/widgets/embed.js';
+        const loadForm = () => {
+          if (window.Tally) {
+            window.Tally.loadEmbeds();
+            return;
+          }
+          const frame = document.querySelector('#feedback iframe');
+          frame.src = frame.dataset.tallySrc;
+        };
+        widget.onload = loadForm;
+        widget.onerror = loadForm;
+        document.head.append(widget);
+      })();
+    </script>

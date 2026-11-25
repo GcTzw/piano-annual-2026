@@ -33,10 +33,89 @@ body:has(.back-first){padding-bottom:88px}
   margin-top: 0;
 }
 
-.page-content:has(.traffic) {
+.page-content:has([data-page-panel="traffic"]:not([hidden])) {
   display: flow-root;
   min-block-size: 100svh;
 }
+
+.recital-feedback {
+  width: min(100%, 1160px);
+  margin-inline: auto;
+  padding: clamp(24px, 5vw, 56px) var(--page) clamp(40px, 7vw, 80px);
+}
+.feedback-form {
+  margin-top: 16px;
+  border-radius: 8px;
+  background-color: var(--ivory);
+  overflow: hidden;
+}
+.feedback-form iframe {
+  display: block;
+  border: 0;
+}
+
+.background-music {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-right));
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ivory);
+  font-size: 14px;
+}
+.background-music[hidden] { display: none }
+.music-toggle {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-start-start-radius: 7px;
+  border-end-start-radius: 7px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+.music-toggle:hover,
+.background-music[data-playing] .music-toggle { color: var(--gold); background-color: var(--navy) }
+.background-music svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.music-toggle .equalizer-slash-gap {
+  stroke: var(--surface);
+  stroke-width: 5;
+}
+.music-toggle:hover .equalizer-slash-gap { stroke: var(--navy) }
+.background-music[data-playing] :is(.equalizer-slash, .equalizer-slash-gap) { display: none }
+.music-volume {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-inline: 10px;
+  border-inline-start: 1px solid var(--line);
+}
+.music-volume input {
+  width: clamp(64px, 20vw, 96px);
+  min-height: 44px;
+  margin: 0;
+  accent-color: var(--gold);
+}
+.music-volume input:focus-visible { outline: 2px solid var(--gold) }
+.music-volume span { min-width: 4ch; text-align: end; font-size: 12px; font-variant-numeric: tabular-nums }
+.background-music:not([data-playing]) .speaker-waves,
+.background-music[data-playing] .speaker-muted { display: none }
 
 .site-nav {
   display: flex;

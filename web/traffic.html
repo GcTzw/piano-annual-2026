@@ -6,10 +6,29 @@
   <title>交通資訊｜2026 共響共享音樂會</title>
   <meta name="description" content="2026 共響共享音樂會・12 月 20 日 14:30・禾禾文化空間。查看場地地圖與交通路線。">
   <link rel="icon" href="assets/piano.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css"><script src="main.js" defer></script>
+  <link rel="stylesheet" href="styles.css"><script src="main.js" defer></script><script src="background-music.js" defer></script>
 </head>
 <body id="top">
   <a class="skip" href="#traffic">跳至主要內容</a>
+  <div class="background-music" role="group" aria-label="背景音樂" hidden>
+    <audio src="assets/program-notes.mp3" loop muted preload="metadata"></audio>
+    <button type="button" class="music-toggle" aria-label="開啟背景音樂" title="開啟背景音樂">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4 10v4m4-7v10m4-13v16m4-12v8m4-6v4"/>
+        <path class="equalizer-slash-gap" d="M3 3l18 18"/>
+        <path class="equalizer-slash" d="M3 3l18 18"/>
+      </svg>
+    </button>
+    <label class="music-volume">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M3 9h4l5-4v14l-5-4H3z"/>
+        <path class="speaker-waves" d="M15 9a4 4 0 0 1 0 6m3-9a8 8 0 0 1 0 12"/>
+        <path class="speaker-muted" d="m16 10 4 4m0-4-4 4"/>
+      </svg>
+      <input type="range" min="0" max="100" value="30" aria-label="背景音樂音量">
+      <span aria-hidden="true">30%</span>
+    </label>
+  </div>
   <main>
     <section class="invitation" id="concert" aria-labelledby="title">
       <div class="invitation-copy">
@@ -25,9 +44,152 @@
     </section>
     <div class="page-content">
       <nav class="site-nav" id="pages" aria-label="網站導覽">
-        <a href="./#pages">節目單</a>
-        <a href="traffic.html#pages" aria-current="page">交通資訊</a>
+        <a href="./#pages" data-page="program">節目單</a>
+        <a href="traffic.html#pages" data-page="traffic" aria-current="page">交通資訊</a>
       </nav>
+      <div data-page-panel="program" data-title="共響共享｜2026 音樂會" data-description="探索演出曲目與演出者。" hidden>
+<section class="program" id="program" aria-labelledby="program-title">
+      <div class="section-heading">
+        <h2 id="program-title">節目單</h2>
+        <a class="download-program" href="assets/concert-program.pdf" download="共響共享音樂會節目單.pdf">下載節目單 <span aria-hidden="true">↓</span><small>PDF</small></a>
+      </div>
+      <nav class="program-nav" aria-label="節目場次"><a href="#first" data-part="first" aria-current="true">上半場 <span>01 — 14</span></a><a href="#second" data-part="second">下半場 <span>15 — 26</span></a><span class="nav-note">26 個演出時刻</span></nav>
+      <section class="movement" id="first" aria-labelledby="first-title"><div class="movement-heading"><h3 id="first-title"><span class="part-label">上篇</span> 上半場</h3><p>FIRST MOVEMENT</p></div><div class="column-labels"><span>曲目 / REPERTOIRE</span><span>演出者 / PERFORMER</span></div><details class="piece" name="concert-program" id="piece-01">
+          <summary><span class="number">01</span><span class="piece-title">龍貓</span><span class="performer">許蘭欣</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>動畫電影《龍貓》・久石讓</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-02">
+          <summary><span class="number">02</span><span class="piece-title">聽見下雨的聲音</span><span class="performer">許蘭欣</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>周杰倫《哎呦，不錯哦》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-03">
+          <summary><span class="number">03</span><span class="piece-title">Sundial Dreams</span><span class="performer">闕竹吟</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>Kevin Kern《In the Enchanted Garden》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-04">
+          <summary><span class="number">04</span><span class="piece-title">卡農</span><span class="performer">黃鈺惠</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>Johann Pachelbel・Canon in D</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-05">
+          <summary><span class="number">05</span><span class="piece-title">Larissas Lied</span><span class="performer">施純儔</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>德國電影《愛樂時光》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-06">
+          <summary><span class="number">06</span><span class="piece-title">城裡的月光</span><span class="performer">黃愛花</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>許美靜《遺憾》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-07">
+          <summary><span class="number">07</span><span class="piece-title">蕭邦夜曲</span><span class="performer">許美惠</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>Frédéric Chopin・Nocturne</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-08">
+          <summary><span class="number">08</span><span class="piece-title">溫柔</span><span class="performer">曹傑</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>五月天《愛情萬歲》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-09">
+          <summary><span class="number">09</span><span class="piece-title">離別的早晨</span><span class="performer">楊靜萍</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>奧地利歌手 Udo Jürgens 的德文歌曲《Was ich dir sagen will》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-10">
+          <summary><span class="number">10</span><span class="piece-title">The Way We Were</span><span class="performer">陳威光</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>電影《The Way We Were》主題曲</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-11">
+          <summary><span class="number">11</span><span class="piece-title">炎</span><span class="performer">王鼎中</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>劇場版《鬼滅之刃》無限列車篇・LiSA</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-12">
+          <summary><span class="number">12</span><span class="piece-title">Merry Christmas, Mr. Lawrence</span><span class="performer">楊涵宇</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>電影《Merry Christmas, Mr. Lawrence》・坂本龍一</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-13">
+          <summary><span class="number">13</span><span class="piece-title">慷慨</span><span class="performer">特別來賓—張詩柔</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>曾沛慈《今天陽光就是特別耀眼特別和諧》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-14">
+          <summary><span class="number">14</span><span class="piece-title">刻在我心底的名字</span><span class="performer">特別來賓—張詩柔</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>電影《刻在你心底的名字》主題曲・盧廣仲</p></div></div>
+        </details></section>
+      <div class="intermission"><div><p>中場休息</p><span>INTERMISSION</span></div><span class="rest-line"></span><p class="rest-copy">稍作停留，讓餘韻延續。</p></div>
+      <section class="movement" id="second" aria-labelledby="second-title"><div class="movement-heading"><h3 id="second-title"><span class="part-label">下篇</span> 下半場</h3><p>SECOND MOVEMENT</p></div><div class="column-labels"><span>曲目 / REPERTOIRE</span><span>演出者 / PERFORMER</span></div><details class="piece" name="concert-program" id="piece-15">
+          <summary><span class="number">15</span><span class="piece-title">兒歌</span><span class="performer">闕竹吟</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>張懸《親愛的…我還不知道》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-16">
+          <summary><span class="number">16</span><span class="piece-title">魚仔</span><span class="performer">曹傑</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>電視劇《花甲男孩轉大人》主題曲・盧廣仲</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-17">
+          <summary><span class="number">17</span><span class="piece-title">Kiss the Rain</span><span class="performer">黃鈺惠</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>Yiruma《From the Yellow Room》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-18">
+          <summary><span class="number">18</span><span class="piece-title">蒲公英的約定</span><span class="performer">許蘭欣</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>周杰倫《我很忙》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-19">
+          <summary><span class="number">19</span><span class="piece-title">The Enchanted Garden</span><span class="performer">黃愛花</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>Kevin Kern《In the Enchanted Garden》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-20">
+          <summary><span class="number">20</span><span class="piece-title">Have I Told You Lately</span><span class="performer">陳威光</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>Van Morrison《Avalon Sunset》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-21">
+          <summary><span class="number">21</span><span class="piece-title">叮叮噹</span><span class="performer">楊靜萍</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>Jingle Bells・James Lord Pierpont</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-22">
+          <summary><span class="number">22</span><span class="piece-title">津輕海峽冬景色</span><span class="performer">許美惠</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>石川さゆり〈津軽海峡・冬景色〉</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-23">
+          <summary><span class="number">23</span><span class="piece-title">小情歌</span><span class="performer">王鼎中</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>蘇打綠《小宇宙》</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-24">
+          <summary><span class="number">24</span><span class="piece-title">追</span><span class="performer">特別來賓—張詩柔</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>電影《金枝玉葉》・張國榮</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-25">
+          <summary><span class="number">25</span><span class="piece-title">美麗而殘酷的世界</span><span class="performer">楊涵宇</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>動畫《進擊的巨人》片尾曲・日笠陽子</p></div></div>
+        </details>
+<details class="piece" name="concert-program" id="piece-26">
+          <summary><span class="number">26</span><span class="piece-title">特別演出</span><span class="performer">鋼琴 顏萍茹<br>鼓手 黃育淞</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="piece-info"><div class="source-copy"><span class="source-label">作品出處</span><p>特別演出・鋼琴與鼓</p></div></div>
+        </details></section>
+    </section>
+    <section class="recital-feedback" id="feedback" aria-labelledby="feedback-title">
+      <h2 id="feedback-title">演後回饋</h2>
+      <div class="feedback-form">
+        <iframe
+          data-tally-src="https://tally.so/embed/8NZ0Yl?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
+          loading="lazy" width="100%" height="508"
+          title="共響共享｜2026 音樂會演後回饋 - 賓客"></iframe>
+      </div>
+      <a class="explore" href="https://tally.so/r/8NZ0Yl" target="_blank" rel="noopener">在新分頁填寫問卷 ↗</a>
+    </section>
+    <section class="closing"><h2>每一份聆聽，<br>都是音樂的一部分。</h2><p>感謝你，與我們共響共享。</p><a href="#top">回到最上方 ↑</a></section>
+    <script>
+      (() => {
+        const widget = document.createElement('script');
+        widget.src = 'https://tally.so/widgets/embed.js';
+        const loadForm = () => {
+          if (window.Tally) {
+            window.Tally.loadEmbeds();
+            return;
+          }
+          const frame = document.querySelector('#feedback iframe');
+          frame.src = frame.dataset.tallySrc;
+        };
+        widget.onload = loadForm;
+        widget.onerror = loadForm;
+        document.head.append(widget);
+      })();
+    </script>
+      </div>
+      <div data-page-panel="traffic" data-title="交通資訊｜2026 共響共享音樂會" data-description="查看場地地圖與交通路線。">
 <section class="traffic" id="traffic" aria-labelledby="traffic-title">
       <div class="traffic-details">
         <h1 id="traffic-title">交通資訊</h1>
@@ -57,9 +219,10 @@
         </section>
       </div>
     </section>
+      </div>
     </div>
   </main>
   <footer><span>共響共享 · 2026</span><span>12.20 / 禾禾文化空間</span></footer><div class="toast" role="status" aria-live="polite"></div>
-
+<a class="back-first" hidden href="#piece-01" aria-label="回到第一首歌"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12 6-6 6 6M12 6v14M5 3h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>第一首</span></a>
 </body>
 </html>
