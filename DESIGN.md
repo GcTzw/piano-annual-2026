@@ -6,10 +6,10 @@
 
 以音樂會書冊的封面、扉頁、目次與章節節奏整理頁面。首屏為封面；活動資訊為扉頁；上、下半場為連續章節，不使用卡片網格。所有主要文字左對齊，封面與結尾置中。
 
-- 標題字體：Songti TC / PMingLiU / serif；內文：PingFang TC / Microsoft JhengHei / sans-serif，無外部字型請求。
-- H1 封面：64–96px、400、行高 1.25、字距 .12em。活動重複標題採 H2。
-- H2：30–48px、400、行高 1.4、字距 .06em；H3：24–30px、400、行高 1.5。
-- 曲名：22–26px、400、行高 1.55；演出者與內文：16px、400、行高 1.75；出處：15–16px、行高 1.8；標籤最低 12px。
+- 透過 Google Fonts 載入 Noto Serif TC 與 Noto Sans TC。宋體依序回退到 Songti TC 與內文字型，黑體依序回退到 PingFang TC、Microsoft JhengHei 與系統無襯線字型。
+- 封面主標採 Noto Serif TC 600，行高 1.25，字距 .06em。
+- 章節標題採 Noto Serif TC 600。曲名採 Noto Serif TC 500，字級 22–25px，行高 1.55。
+- 演出者及內文採 Noto Sans TC 400，主要內文字級為 16px，行高 1.75。導覽、按鈕、日期與時間採 Noto Sans TC 500。
 - 配色：背景 #0B1828、層次 #13263A、主文字 #F1EADF、次文字 #C6B9A5、點綴 #C6AB78；裝飾線與文字使用不同 token。
 - 間距以 8px 為基準；手機頁邊 24px、平板 40px、桌面 64px，閱讀容器上限 1160px。
 - 800px 以下：標題、琴鍵上下排列，活動日期與時間並列、場地獨立一列，避免 FB 擠壓。
