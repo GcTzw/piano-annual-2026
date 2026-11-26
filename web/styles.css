@@ -90,6 +90,28 @@ body:has(.back-first){padding-bottom:88px}
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+.equalizer-column {
+  fill: currentColor;
+  stroke: none;
+  clip-path: inset(8px 0 0);
+  animation: equalizer-bounce 1.1s steps(1) infinite;
+}
+.equalizer-column:nth-child(2) {
+  clip-path: inset(0);
+  animation-duration: 1.35s;
+  animation-delay: -.65s;
+}
+.equalizer-column:nth-child(3) {
+  clip-path: inset(12px 0 0);
+  animation-duration: .9s;
+  animation-delay: -.3s;
+}
+@keyframes equalizer-bounce {
+  0%, 100% { clip-path: inset(12px 0 0) }
+  20%, 65% { clip-path: inset(4px 0 0) }
+  35% { clip-path: inset(0) }
+  50%, 80% { clip-path: inset(8px 0 0) }
+}
 .music-toggle .equalizer-slash-gap {
   stroke: var(--surface);
   stroke-width: 5;
